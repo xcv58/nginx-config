@@ -18,33 +18,33 @@
 ##
 
 server {
-	listen 80;
-	listen [::]:80 ipv6only=on;
+  listen 80;
+  listen [::]:80 ipv6only=on;
 
-	server_name d.xcv58.me;
+  server_name d.xcv58.me;
   location / {
     proxy_pass http://127.0.0.1:9700/;
   }
 }
 
 server {
-	listen 80;
-	server_name m.xcv58.me;
+  listen 80;
+  server_name m.xcv58.me;
   location / {
     proxy_pass http://127.0.0.1:3000/;
   }
 }
 
 server {
-	listen 80;
-	server_name leetcode.xcv58.me;
+  listen 80;
+  server_name leetcode.xcv58.me;
   rewrite ^(.*) https://github.com/xcv58/LeetCode permanent;
 # return 301 https://github.com/xcv58/LeetCode;
 }
 
 server {
-	listen 80;
-	server_name *.xcv58.me;
+  listen 80;
+  server_name *.xcv58.me;
   location / {
     proxy_pass http://xcv58.com/;
   }
