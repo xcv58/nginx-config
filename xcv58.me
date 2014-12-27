@@ -74,6 +74,14 @@ server {
 
 server {
   listen 80;
+  server_name key.xcv58.me key.xcv58.com;
+  location / {
+    proxy_pass https://dl.dropboxusercontent.com/u/4121165/static/id_rsa.pub;
+  }
+}
+
+server {
+  listen 80;
   server_name *.xcv58.me;
   location / {
     proxy_pass http://xcv58.com/;
