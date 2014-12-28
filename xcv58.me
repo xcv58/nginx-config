@@ -21,7 +21,7 @@ server {
   listen 80;
   listen [::]:80 ipv6only=on;
 
-  server_name d.xcv58.me;
+  server_name d.xcv58.me vpn.xcv58.com;
   location / {
     proxy_pass http://127.0.0.1:9700/;
   }
@@ -77,6 +77,14 @@ server {
   server_name key.xcv58.me key.xcv58.com;
   location / {
     proxy_pass https://dl.dropboxusercontent.com/u/4121165/static/id_rsa.pub;
+  }
+}
+
+server {
+  listen 80;
+  server_name vpn.xcv58.me;
+  location / {
+    proxy_pass https://raw.github.com/philplckthun/setup-simple-ipsec-l2tp-vpn/master/setup.sh;
   }
 }
 
