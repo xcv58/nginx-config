@@ -37,6 +37,15 @@ server {
 
 server {
   listen 80;
+  server_name ip.xcv58.me;
+  location / {
+    proxy_pass http://127.0.0.1:8080/;
+    proxy_set_header  X-Real-IP  $remote_addr;
+  }
+}
+
+server {
+  listen 80;
   server_name *.xcv58.me;
   location / {
     proxy_pass http://xcv58.com/;
