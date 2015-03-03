@@ -67,18 +67,14 @@ server {
 
 server {
   listen 80;
-  server_name *.xcv58.me;
-  location / {
-    proxy_pass http://xcv58.com/;
-  }
-}
-
-server {
   listen 443 ssl;
   server_name *.xcv58.me xcv58.me;
+  ssl on;
   ssl_certificate     /etc/nginx/ssl/wildcard.xcv58.me.crt;
   ssl_certificate_key /etc/nginx/ssl/xcv58.me.key;
   location / {
+    proxy_pass_request_headers on;
+    proxy_pass_request_body on;
     proxy_pass http://xcv58.com/;
   }
 }
