@@ -29,16 +29,6 @@ server {
 
 server {
   listen 443 ssl;
-  server_name *.xcv58.me xcv58.me;
-  ssl_certificate     /etc/nginx/ssl/wildcard.xcv58.me.crt;
-  ssl_certificate_key /etc/nginx/ssl/xcv58.me.key;
-  location / {
-    proxy_pass http://xcv58.com/;
-  }
-}
-
-server {
-  listen 443 ssl;
   server_name maybe.xcv58.me;
   ssl_certificate     /etc/nginx/ssl-startssl/ssl-unified.crt;
   ssl_certificate_key /etc/nginx/ssl-startssl/ssl.key;
@@ -57,6 +47,9 @@ server {
 
 server {
   listen 80;
+  listen 443 ssl;
+  ssl_certificate     /etc/nginx/ssl/wildcard.xcv58.me.crt;
+  ssl_certificate_key /etc/nginx/ssl/xcv58.me.key;
   server_name weixin.xcv58.me;
   location / {
     proxy_pass https://dl.dropboxusercontent.com/u/4121165/static/weixin.jpg;
@@ -75,6 +68,16 @@ server {
 server {
   listen 80;
   server_name *.xcv58.me;
+  location / {
+    proxy_pass http://xcv58.com/;
+  }
+}
+
+server {
+  listen 443 ssl;
+  server_name *.xcv58.me xcv58.me;
+  ssl_certificate     /etc/nginx/ssl/wildcard.xcv58.me.crt;
+  ssl_certificate_key /etc/nginx/ssl/xcv58.me.key;
   location / {
     proxy_pass http://xcv58.com/;
   }
