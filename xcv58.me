@@ -29,9 +29,9 @@ server {
 
 server {
   listen 443 ssl;
-  server_name www.xcv58.me xcv58.me;
-  ssl_certificate     /etc/nginx/ssl/www.xcv58.me.crt;
-  ssl_certificate_key /etc/nginx/ssl/www.xcv58.me.key;
+  server_name *.xcv58.me xcv58.me;
+  ssl_certificate     /etc/nginx/ssl/wildcard.xcv58.me.crt;
+  ssl_certificate_key /etc/nginx/ssl/xcv58.me.key;
   location / {
     proxy_pass http://xcv58.com/;
   }
