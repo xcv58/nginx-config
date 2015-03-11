@@ -45,7 +45,11 @@ server {
 server {
   listen 80;
   server_name maybe.xcv58.me;
-  return 301 https://maybe.xcv58.me$request_uri;
+  location / {
+    proxy_pass http://127.0.0.1:3000/;
+    proxy_pass_request_headers on;
+    proxy_pass_request_body on;
+  }
 }
 
 server {
