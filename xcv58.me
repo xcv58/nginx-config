@@ -71,6 +71,17 @@ server {
 
 server {
   listen 80;
+  listen 443 ssl;
+  ssl_certificate     /etc/nginx/ssl/wildcard.xcv58.me.crt;
+  ssl_certificate_key /etc/nginx/ssl/xcv58.me.key;
+  server_name qq.xcv58.me;
+  location / {
+    proxy_pass https://dl.dropboxusercontent.com/u/4121165/static/QQ.jpg;
+  }
+}
+
+server {
+  listen 80;
   server_name ip.xcv58.me;
   location / {
     proxy_pass http://127.0.0.1:8080/;
