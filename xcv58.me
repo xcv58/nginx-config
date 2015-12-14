@@ -109,11 +109,7 @@ server {
   ssl on;
   ssl_certificate     /etc/nginx/ssl/wildcard.xcv58.me.crt;
   ssl_certificate_key /etc/nginx/ssl/xcv58.me.key;
-  location / {
-    proxy_pass_request_headers on;
-    proxy_pass_request_body on;
-    proxy_pass https://medium.com/xcv58-s-blog;
-  }
+  return https://medium.com/xcv58-s-blog;
 }
 
 
